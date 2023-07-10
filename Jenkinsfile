@@ -1,6 +1,8 @@
 pipeline{
     agent any
-    tools {nodejs '16.13.2'}
+    tools {
+        nodejs '14.17.1'
+    }
     stages {
         stage('Clone Repository'){
             steps{
@@ -14,10 +16,5 @@ pipeline{
                 bat 'npm install'
             }
         }             
-        stage('Deploy'){
-            steps {
-                bat 'pm2 startOrRestart pm2.config.json'
-            }
-        }
     }
 }
